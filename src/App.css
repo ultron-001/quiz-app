@@ -1,0 +1,692 @@
+/* Base styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ffe5b4, #ffd1a9);
+  color: #3a2c1d;
+}
+
+/* Root & App full screen and centered */
+#root, .app, .quiz-page, .centered-page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Shared centered container */
+.centered-page, .quiz-page {
+  max-width: 900px;
+  width: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  background-color: #fffaf0;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  flex-direction: column;
+  text-align: center;
+}
+
+/* Headings */
+.centered-page h1, .quiz-page h1 {
+  font-size: 2.5rem;
+  color: #5c4033;
+  margin-bottom: 10px;
+}
+
+.centered-page h2 {
+  font-size: 1.5rem;
+  color: #6d4c41;
+  margin-bottom: 20px;
+}
+
+/* Timer Bar */
+.timer-bar-container {
+  width: 100%;
+  height: 10px;
+  background-color: #ffb347;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.timer-bar {
+  height: 100%;
+  background-color: #4caf50; /* Green color */
+  border-radius: 5px;
+  transition: width 1s linear; /* Smooth transition */
+}
+
+.timer-bar {
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 5px;
+  transition: width 1s linear;
+}
+
+/* Question */
+.question-text {
+  font-weight: bold;
+  font-size: 1.8rem;
+  margin: 20px 0 30px;
+  color: #5c4033;
+}
+
+/* Options Grid */
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+/* Answer Buttons */
+.option-btn {
+  padding: 20px;
+  font-size: 1.2rem;
+  border: 2px solid #ffb347;
+  border-radius: 14px;
+  background-color: #fff;
+  color: #5c4033;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.option-btn:hover {
+  background-color: #ffe2b3;
+}
+
+.option-btn.correct {
+  background-color: #81c784;
+  border-color: #4caf50;
+  color: white;
+}
+
+.option-btn.wrong {
+  background-color: #ef9a9a;
+  border-color: #e53935;
+  color: white;
+}
+
+/* Info Section */
+.quiz-info {
+  font-size: 0.95rem;
+  color: #6d4c41;
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+/* Buttons (including back/start/etc.) */
+button,
+.back-btn {
+  margin-top: 20px;
+  padding: 16px 32px;
+  background-color: #d17f49;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover,
+.back-btn:hover {
+  background-color: #b05e2e;
+}
+
+.scoreboard_restart_btn{
+  margin-right: 5px;
+}
+
+/* Loading / Error styling */
+.loading, .error {
+  font-size: 1.2rem;
+  color: #8b4513;
+}
+
+/* Form layout for CategorySelection */
+.category-selection form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Form groups */
+.form-group {
+  margin-bottom: 25px;
+  width: 100%;
+  max-width: 500px;
+  text-align: left;
+}
+
+/* Labels */
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: #5c4033;
+}
+
+/* Select dropdowns */
+.form-group select {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1rem;
+  border: 2px solid #ffb347;
+  border-radius: 10px;
+  background-color: #fff8ec;
+  color: #5c4033;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease;
+}
+
+.form-group select:focus {
+  border-color: #e17b3f;
+  outline: none;
+}
+
+/* Start Quiz button override (make it big and centered) */
+.category-selection button[type="submit"] {
+  width: 100%;
+  max-width: 300px;
+  font-size: 1.2rem;
+}
+
+/* New changes */
+
+/* Timer under the question */
+.quiz .timer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Footer containing score, high score, category, difficulty on one line */
+.quiz-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+  background-color: #fffaf0;
+  font-size: 1rem;
+  color: #6d4c41;
+  margin-top: 20px;
+}
+
+/* Footer paragraph styling */
+.quiz-footer p {
+  margin: 0 15px;
+  padding: 0;
+  font-weight: 500;
+}
+/* Scoreboard Styling */
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  padding: 30px;
+  background-color: #fffaf0;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.scoreboard h1 {
+  font-size: 2.8rem;
+  color: #5c4033;
+  margin-bottom: 20px;
+}
+
+.scoreboard h2 {
+  font-size: 1.5rem;
+  color: #6d4c41;
+  margin: 10px 0;
+}
+
+.new-high-score {
+  margin: 20px 0;
+  padding: 15px 25px;
+  background-color: #ffefd5;
+  border-radius: 15px;
+  border: 2px dashed #ffb347;
+  animation: pulse 1.5s infinite;
+}
+
+.new-high-score h3 {
+  font-size: 1.8rem;
+  color: #d17f49;
+  margin: 0;
+}
+
+.scoreboard-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.scoreboard-buttons button {
+  flex: 0 1 200px;
+  padding: 16px 24px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.scoreboard-buttons button:hover {
+  transform: translateY(-3px);
+}
+
+.scoreboard_restart_btn {
+  background-color: #4caf50;
+}
+
+.scoreboard_restart_btn:hover {
+  background-color: #3d8b40;
+}
+
+.reset-button {
+  background-color: #e57373;
+}
+
+.reset-button:hover {
+  background-color: #c62828;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive adjustments for smaller screens and mobile devices */
+@media (max-width: 768px) {
+  .scoreboard {
+    padding: 20px;
+    max-width: 90%;
+  }
+  
+  .scoreboard h1 {
+    font-size: 2.2rem;
+  }
+  
+  .scoreboard h2 {
+    font-size: 1.3rem;
+    margin: 8px 0;
+  }
+  
+  .new-high-score {
+    padding: 12px 20px;
+    margin: 15px 0;
+  }
+  
+  .new-high-score h3 {
+    font-size: 1.5rem;
+  }
+  
+  .scoreboard-buttons button {
+    flex: 0 1 180px; /* Slightly smaller buttons */
+    padding: 14px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scoreboard h1 {
+    font-size: 1.8rem;
+  }
+  
+  .scoreboard h2 {
+    font-size: 1.1rem;
+  }
+  
+  .new-high-score h3 {
+    font-size: 1.3rem;
+  }
+  
+  .scoreboard-buttons {
+    flex-direction: row;
+    /* flex: 0 1 180px; */
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .scoreboard-buttons button {
+     width: auto;  /* Remove full width */
+    min-width: 150px; /* Set minimum width */
+    max-width: 180px; /* Limit maximum width */
+    padding: 12px 18px;
+    font-size: 0.95rem;
+    height: 50px;
+  }
+  
+  .centered-page, .quiz-page {
+    padding: 20px;
+    border-radius: 15px;
+  }
+}
+
+/* Add this to your existing CSS */
+.reset-high-score-message {
+  margin: 20px 0;
+  padding: 15px 25px;
+  background-color: #f5f5f5;
+  border-radius: 15px;
+  border: 2px dashed #e57373;
+}
+
+.reset-high-score-message h3 {
+  font-size: 1.8rem;
+  color: #e57373;
+  margin: 0;
+}
+
+/* Make sure the media queries also handle this new element */
+@media (max-width: 768px) {
+  .reset-high-score-message {
+    padding: 12px 20px;
+    margin: 15px 0;
+  }
+  
+  .reset-high-score-message h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .reset-high-score-message h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .reset-high-score-message h3 {
+    font-size: 1.1rem;
+  }
+}
+
+
+/* ===== RESPONSIVE STYLES FOR ALL COMPONENTS ===== */
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1200px) {
+  .centered-page, .quiz-page {
+    max-width: 800px;
+    padding: 35px;
+  }
+  
+  .question-text {
+    font-size: 1.7rem;
+  }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 992px) {
+  .centered-page, .quiz-page {
+    max-width: 700px;
+    padding: 30px;
+  }
+  
+  .question-text {
+    font-size: 1.6rem;
+    margin: 15px 0 25px;
+  }
+  
+  .options-grid {
+    gap: 20px;
+  }
+  
+  .option-btn {
+    padding: 18px;
+    font-size: 1.1rem;
+  }
+  
+  /* Home component */
+  .home h1 {
+    font-size: 2.3rem;
+  }
+  
+  .home p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 768px) {
+  .centered-page, .quiz-page {
+    max-width: 90%;
+    padding: 25px;
+    border-radius: 15px;
+  }
+  
+  .question-text {
+    font-size: 1.5rem;
+    margin: 15px 0 20px;
+  }
+  
+  .options-grid {
+    grid-template-columns: 1fr; /* Switch to single column */
+    gap: 15px;
+  }
+  
+  .option-btn {
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+  
+  /* Quiz component */
+  .quiz-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .timer-bar-container {
+    height: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .quiz-footer {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .quiz-footer p {
+    margin: 5px 10px;
+    font-size: 0.9rem;
+  }
+  
+  /* CategorySelection component */
+  .category-selection form {
+    width: 90%;
+  }
+  
+  .form-group select {
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+  
+  .category-selection button[type="submit"] {
+    max-width: 250px;
+    font-size: 1.1rem;
+  }
+  
+  /* Home component */
+  .home h1 {
+    font-size: 2rem;
+  }
+  
+  .home p {
+    font-size: 1.1rem;
+    margin: 15px 0;
+  }
+  
+  .home button {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 576px) {
+  .centered-page, .quiz-page {
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  .question-text {
+    font-size: 1.3rem;
+    margin: 10px 0 15px;
+  }
+  
+  .option-btn {
+    padding: 12px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    border-width: 1px;
+  }
+  
+  /* Quiz component */
+  .quiz-header h2 {
+    font-size: 1.1rem;
+  }
+  
+  .timer-bar-container {
+    height: 6px;
+    margin-bottom: 15px;
+  }
+  
+  .quiz-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .quiz-footer p {
+    margin: 3px 0;
+    font-size: 0.85rem;
+  }
+  
+  /* Question component */
+  .answers-container {
+    gap: 10px;
+  }
+  
+  .answer-feedback p {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+  
+  /* CategorySelection component */
+  .form-group label {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+  
+  .form-group select {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+  
+  .category-selection button[type="submit"] {
+    max-width: 220px;
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  
+  /* Home component */
+  .home h1 {
+    font-size: 1.8rem;
+  }
+  
+  .home p {
+    font-size: 1rem;
+    margin: 12px 0;
+  }
+  
+  .home button {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+  
+  /* Back button */
+  .back-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    margin-top: 15px;
+  }
+}
+
+/* Very small devices (small phones, less than 400px) */
+@media (max-width: 400px) {
+  .centered-page, .quiz-page {
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  .question-text {
+    font-size: 1.2rem;
+    margin: 8px 0 12px;
+  }
+  
+  .option-btn {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  
+  /* Quiz component */
+  .quiz-header h2 {
+    font-size: 1rem;
+  }
+  
+  /* CategorySelection component */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+  }
+  
+  .form-group select {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+  
+  .category-selection button[type="submit"] {
+    max-width: 200px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  /* Home component */
+  .home h1 {
+    font-size: 1.6rem;
+  }
+  
+  .home p {
+    font-size: 0.9rem;
+    margin: 10px 0;
+  }
+  
+  .home button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
